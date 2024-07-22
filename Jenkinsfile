@@ -3,18 +3,18 @@ pipeline {
     stages {
         stage("Setup") {
             steps {
-                pip3 install ruamel.yaml
-                pip3 install pandas
+                sh 'pip3 install ruamel.yaml'
+                sh 'pip3 install pandas'
             }
         }
         stage("Build") {
             steps {
-                python src/calc_demo.py
+                sh 'python src/calc_demo.py'
             }
         }
         stage("Test") {
             steps {
-                pytest tests/test_calc.py
+                sh 'pytest tests/test_calc.py'
             }
         }
         stage("Deploy") {
