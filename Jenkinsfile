@@ -1,15 +1,15 @@
 pipeline {
     agent any
     stages {
-        stage("Setup") {
-            steps {
-                sh 'pip3 install ruamel.yaml'
-                sh 'pip3 install pandas'
-            }
-        }
+        // stage("Setup") {
+        //     steps {
+        //         sh 'pip3 install ruamel.yaml'
+        //         sh 'pip3 install pandas'
+        //     }
+        // }
         stage("Build") {
             steps {
-                sh 'python src/calc_demo.py'
+                sh 'python3 src/calc_demo.py'
             }
         }
         stage("Test") {
