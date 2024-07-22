@@ -25,9 +25,12 @@ pipeline {
     }
     post {
         always {
-            mail to: 'anand.ve.verma@oracle.com',
-            subject: "Jenkins Demo Pipeline #${env.BUILD_NUMBER} Build Completed",
-            body: "Check more details here ${env.BUILD_URL}"
+            emailext (
+                from: 'microtxqa-jenkins@oracle.com'
+                to: 'anand.ve.verma@oracle.com',
+                subject: "Jenkins Demo Pipeline #${env.BUILD_NUMBER} Build Completed",
+                body: "Check more details here ${env.BUILD_URL}"
+            )
         }
     }
 }
